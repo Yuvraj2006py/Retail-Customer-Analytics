@@ -208,6 +208,9 @@ For production use, replace synthetic data generation with real data sources.
 
 ## License
 
+## Dashboard link
+ - https://retail-customer-analytics-4kjtroejpctthdavea84qx.streamlit.app
+
 This project is for educational and portfolio purposes.
 
 ## Author
