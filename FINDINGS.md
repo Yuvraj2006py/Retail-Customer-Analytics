@@ -241,13 +241,13 @@ Based on segment analysis:
 
 ### 5.3 Business Health Indicators
 
-✅ **Positive Indicators**:
+**Positive Indicators**:
 - Strong revenue growth (96% from Q1 2022 to Q1 2023)
 - High active customer rate (87%)
 - Large Champions segment (69.4% of customers)
 - Strong loyalty program engagement (79.9% in Silver/Platinum tiers)
 
-⚠️ **Areas of Concern**:
+**Areas of Concern**:
 - 20.1% of customers are dormant (haven't purchased in 3+ months)
 - 11% of customers at critical churn risk
 - Churn rate of 13.08% requires attention

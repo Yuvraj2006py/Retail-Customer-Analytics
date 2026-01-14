@@ -80,7 +80,7 @@ def run_etl_pipeline(raw_data_dir: str = "data/raw",
     if all(integrity_results.values()):
         logger.info("✓ All referential integrity checks passed")
     else:
-        logger.warning("⚠ Some referential integrity issues found (see details above)")
+        logger.warning("WARNING: Some referential integrity issues found (see details above)")
     
     # Step 5: Merge datasets
     logger.info("\nStep 5: Merging datasets...")
