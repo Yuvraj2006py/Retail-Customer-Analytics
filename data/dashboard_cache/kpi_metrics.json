@@ -1,0 +1,10 @@
+{
+  "total_customers": 5000,
+  "total_revenue": 510118880.0,
+  "avg_transaction_value": 389.00225830078125,
+  "total_transactions": 1311352,
+  "unique_products": 500,
+  "active_customers": 4346,
+  "churn_rate": 13.08,
+  "avg_lifetime_value": 102023.8046875
+}

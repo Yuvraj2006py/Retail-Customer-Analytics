@@ -1,0 +1,56 @@
+# Data Generation Configuration
+data_generation:
+  # Number of customers to generate
+  num_customers: 5000
+  
+  # Date range for transactions
+  start_date: "2022-01-01"
+  end_date: "2024-12-31"
+  
+  # Transaction parameters
+  transactions:
+    min_transactions_per_customer: 1
+    max_transactions_per_customer: 200
+    avg_transactions_per_customer: 25
+    
+  # Product parameters
+  products:
+    num_products: 500
+    num_categories: 15
+    min_price: 0.99
+    max_price: 299.99
+    
+  # Store parameters
+  stores:
+    num_stores: 50
+    store_cities: ["Toronto", "Vancouver", "Montreal", "Calgary", "Ottawa", "Edmonton", "Winnipeg", "Quebec City"]
+    
+  # Loyalty program parameters
+  loyalty:
+    enrollment_start_date: "2020-01-01"
+    enrollment_end_date: "2024-12-31"
+    tiers:
+      - name: "Bronze"
+        min_points: 0
+        max_points: 9999
+        points_per_dollar: 1
+      - name: "Silver"
+        min_points: 10000
+        max_points: 24999
+        points_per_dollar: 1.15
+      - name: "Gold"
+        min_points: 25000
+        max_points: 49999
+        points_per_dollar: 1.25
+      - name: "Platinum"
+        min_points: 50000
+        max_points: 999999
+        points_per_dollar: 1.5
+        
+  # Survey parameters
+  survey:
+    survey_frequency: 0.3  # 30% of customers have survey data
+    min_satisfaction_score: 1
+    max_satisfaction_score: 5
+    min_nps_score: 0
+    max_nps_score: 10

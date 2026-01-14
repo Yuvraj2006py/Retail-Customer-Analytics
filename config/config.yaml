@@ -1,0 +1,53 @@
+# Main Configuration File
+project:
+  name: "Retail Customer Engagement & Loyalty Analytics"
+  version: "1.0.0"
+  
+# Data paths
+paths:
+  data_raw: "data/raw"
+  data_processed: "data/processed"
+  data_external: "data/external"
+  models: "models"
+  sql: "sql"
+  
+# Database configuration (if using SQL database)
+database:
+  type: "sqlite"  # or "postgresql", "mysql"
+  host: "localhost"
+  port: 5432
+  database: "retail_analytics"
+  username: ""
+  password: ""
+  
+# Model parameters
+models:
+  segmentation:
+    algorithm: "kmeans"
+    n_clusters: 5
+    random_state: 42
+    max_iter: 300
+    
+  churn:
+    algorithm: "xgboost"
+    churn_threshold_days: 90
+    test_size: 0.2
+    random_state: 42
+    n_estimators: 100
+    max_depth: 6
+    learning_rate: 0.1
+    
+# Feature engineering
+features:
+  rfm:
+    recency_bins: 5
+    frequency_bins: 5
+    monetary_bins: 5
+    
+# Dashboard
+dashboard:
+  streamlit:
+    page_title: "Retail Analytics Dashboard"
+    page_icon: "🛒"
+    layout: "wide"
+    initial_sidebar_state: "expanded"
