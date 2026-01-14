@@ -90,9 +90,12 @@ logger = logging.getLogger(__name__)
 @st.cache_data(ttl=3600)
 def load_precomputed_data():
     """Load pre-computed analysis results from cache."""
-    cache_dir = Path("data/dashboard_cache")
+    # Use absolute path relative to project root
+    project_root = Path(__file__).parent.parent.parent
+    cache_dir = project_root / "data" / "dashboard_cache"
     
     if not cache_dir.exists():
+        logger.error(f"Cache directory not found at: {cache_dir.absolute()}")
         return None
     
     try:
@@ -163,7 +166,13 @@ def load_precomputed_data():
         return all_data
         
     except Exception as e:
+        import traceback
+        error_details = traceback.format_exc()
         logger.error(f"Error loading pre-computed data: {e}")
+        logger.error(f"Traceback: {error_details}")
+        # Store error in session state for debugging
+        st.session_state.load_error = str(e)
+        st.session_state.load_error_details = error_details
         return None
 
 
@@ -182,8 +191,14 @@ def main():
                 st.rerun()
             else:
                 st.session_state.loading = False
-                st.error("""
-                **Pre-computed data not found!**
+                error_msg = "**Pre-computed data not found!**"
+                if hasattr(st.session_state, 'load_error'):
+                    error_msg += f"\n\n**Error details:** {st.session_state.load_error}"
+                    if hasattr(st.session_state, 'load_error_details'):
+                        with st.expander("Show full error traceback"):
+                            st.code(st.session_state.load_error_details)
+                
+                st.error(error_msg + """
                 
                 Please run the pre-computation script first:
                 ```
