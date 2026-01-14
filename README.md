@@ -131,11 +131,23 @@ This will create visualization images in `visualizations/` directory.
 
 ### 5. Run Dashboard
 
+**Local Development:**
 ```bash
 streamlit run src/dashboard/app.py
 ```
 
 The dashboard will be available at `http://localhost:8501`
+
+**Deploy to Streamlit Cloud:**
+1. Push your code to GitHub
+2. Go to https://share.streamlit.io/
+3. Sign in with GitHub
+4. Click "New app"
+5. Select repository: `Yuvraj2006py/Retail-Customer-Analytics`
+6. Main file path: `src/dashboard/app.py`
+7. Click "Deploy"
+
+Your dashboard will be live at a URL like: `https://retail-customer-analytics-xxxxx.streamlit.app`
 
 ## Running Tests
 
