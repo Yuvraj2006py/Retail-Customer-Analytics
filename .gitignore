@@ -44,8 +44,8 @@ data/processed/*.csv
 data/processed/*.parquet
 # Allow small dashboard cache files (JSON, small CSVs)
 data/dashboard_cache/*.parquet
-data/dashboard_cache/feature_matrix.csv
-data/dashboard_cache/churn_predictions.csv
+# Note: feature_matrix.csv and churn_predictions.csv are needed but may be large
+# They are explicitly allowed below
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/external/.gitkeep
@@ -60,6 +60,8 @@ data/dashboard_cache/churn_predictions.csv
 !data/dashboard_cache/segment_distribution.csv
 !data/dashboard_cache/segment_labels.csv
 !data/dashboard_cache/segment_profiles.csv
+!data/dashboard_cache/feature_matrix.csv
+!data/dashboard_cache/churn_predictions.csv
 
 # Models
 *.pkl
