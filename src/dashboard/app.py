@@ -94,9 +94,17 @@ def load_precomputed_data():
     project_root = Path(__file__).parent.parent.parent
     cache_dir = project_root / "data" / "dashboard_cache"
     
+    # Also try relative path in case we're running from project root
     if not cache_dir.exists():
-        logger.error(f"Cache directory not found at: {cache_dir.absolute()}")
+        cache_dir = Path("data/dashboard_cache")
+    
+    if not cache_dir.exists():
+        error_msg = f"Cache directory not found. Tried:\n1. {project_root / 'data' / 'dashboard_cache'}\n2. {Path('data/dashboard_cache').absolute()}"
+        logger.error(error_msg)
+        st.error(f"**Cache directory not found!**\n\n{error_msg}")
         return None
+    
+    logger.info(f"Loading pre-computed data from: {cache_dir.absolute()}")
     
     try:
         logger.info("Loading pre-computed analysis results...")
