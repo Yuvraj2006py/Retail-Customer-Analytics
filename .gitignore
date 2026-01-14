@@ -42,9 +42,12 @@ data/raw/*.csv
 data/raw/*.parquet
 data/processed/*.csv
 data/processed/*.parquet
+data/dashboard_cache/*.csv
+data/dashboard_cache/*.parquet
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/external/.gitkeep
+!data/dashboard_cache/.gitkeep
 
 # Models
 *.pkl
