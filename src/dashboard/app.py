@@ -133,7 +133,15 @@ def load_precomputed_data():
         
         # Load trend data
         monthly_revenue = pd.read_csv(cache_dir / 'monthly_revenue.csv')
-        product_performance = pd.read_csv(cache_dir / 'product_performance.csv')
+        
+        # Load product performance (handle missing file gracefully)
+        product_performance_path = cache_dir / 'product_performance.csv'
+        if product_performance_path.exists():
+            product_performance = pd.read_csv(product_performance_path)
+        else:
+            logger.warning("product_performance.csv not found, creating empty DataFrame")
+            product_performance = pd.DataFrame(columns=['ProductID', 'ProductName', 'Category', 'TotalRevenue', 'TotalQuantity', 'TransactionCount'])
+        
         category_performance = pd.read_csv(cache_dir / 'category_performance.csv')
         segment_distribution = pd.read_csv(cache_dir / 'segment_distribution.csv')
         churn_risk_distribution = pd.read_csv(cache_dir / 'churn_risk_distribution.csv')
