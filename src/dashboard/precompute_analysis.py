@@ -162,8 +162,10 @@ def precompute_all_analysis():
         }).reset_index()
         product_revenue.columns = ['ProductID', 'ProductName', 'Category', 'TotalRevenue', 'TotalQuantity', 'TransactionCount']
         product_revenue = product_revenue.sort_values('TotalRevenue', ascending=False)
-        product_revenue.to_csv(output_dir / 'product_performance.csv', index=False)
-        logger.info("Product performance saved")
+        # Save only top 1000 products to keep file size manageable
+        product_revenue_top = product_revenue.head(1000)
+        product_revenue_top.to_csv(output_dir / 'product_performance.csv', index=False)
+        logger.info(f"Product performance saved (top {len(product_revenue_top)} products)")
         
         # Category performance
         category_perf = trans_with_products.groupby('Category').agg({
